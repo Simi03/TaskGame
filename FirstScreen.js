@@ -127,12 +127,10 @@ function FirstScreen({navigation}) {
                 </View>
 
                 <View style={styles.choiceView}>
-                    <TouchableOpacity style={styles.choice}
-                                      onPress={
-                                          () => {
-                                              navigation.navigate("Score")
-                                              score = score + 1;
-                                          }}>
+                    <TouchableOpacity
+                        style={styles.choice}
+                        onPress={() => {navigation.navigate("Score");score = score + 1;}}
+                    >
                         <Text style={styles.buttonText}>3</Text>
                     </TouchableOpacity>
 
