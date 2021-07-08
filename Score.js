@@ -1,12 +1,13 @@
 import React from "react";
-import {Text, Image, StyleSheet, View} from "react-native";
+import {Text, Image, StyleSheet, View, TouchableOpacity} from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
+
 import {score} from './FirstScreen';
 
 const styles = StyleSheet.create({
     globalView: {
         flex: 1,
     },
-
     titleStyle: {
         fontSize: 60,
         textAlign: "center",
@@ -14,30 +15,28 @@ const styles = StyleSheet.create({
 
 
     },
-
     scoreStyle: {
         fontSize: 85,
         textAlign: "center",
         marginBottom: 100,
 
     },
-
     messageStyle: {
         textAlign: "center",
 
     },
-
     titleArea: {
-        flex: 1,
+        flex: 2,
         backgroundColor: "green",
     },
-
-
     messageArea: {
-        flex: 2,
+        flex: 3,
         backgroundColor: "blue",
 
     },
+    ButtonArea:{
+        flex:1
+    }
 
 
 });
@@ -57,6 +56,9 @@ function Score() {
                 <Text style={styles.scoreStyle}>{score}/1</Text>
             </View>
             <View style={styles.messageArea}><Text style={styles.messageStyle}>{message} </Text></View>
+            <View style={styles.ButtonArea}>
+                <FontAwesome name="share" size={50} color="black" />
+            </View>
         </View>
     );
 }
