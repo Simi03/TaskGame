@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground, TouchableHighlight} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground} from "react-native";
 import React from "react";
 import {Button, Icon} from "native-base";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
         elevation: 20,
     },
     choice: {
-        marginLeft:20,
-        marginRight:20,
+        marginLeft: 20,
+        marginRight: 20,
         marginBottom: 90,
         width: 70,
         height: 70,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
     choiceView: {
         flex: 3,
-        flexDirection:"row",
+        flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
 
@@ -91,10 +91,9 @@ const styles = StyleSheet.create({
 
 
 });
+export let score = 0;
 
-
-function FirstScreen() {
-
+function FirstScreen({navigation}) {
     return (
         <View>
             <ImageBackground source={background} style={styles.image}>
@@ -111,18 +110,24 @@ function FirstScreen() {
 
                 <View style={styles.choiceView}>
                     <TouchableOpacity style={styles.choice}
-                        //  onPress={() => Vibration.vibrate(pattern)}
+                                      onPress={
+                                          () => {
+                                              navigation.navigate("Score")
+                                              score = score + 1;
+                                          }}
                     >
                         <Text style={styles.buttonText}>3</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.choice}
-                        //onPress={() => }
+                        onPress={() => score = -1}
                     >
                         <Text style={styles.buttonText}>4</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.choice}>
+                    <TouchableOpacity style={styles.choice}
+                        onPress={() => score = -1}
+                    >
                         <Text style={styles.buttonText}>5</Text>
                     </TouchableOpacity>
 
