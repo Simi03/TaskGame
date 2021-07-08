@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground, TouchableHighlight} from "react-native";
 import React from "react";
 import {Button, Icon} from "native-base";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
@@ -48,12 +48,31 @@ const styles = StyleSheet.create({
 
         elevation: 20,
     },
+    wrongChoice: {
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 90,
+        width: 70,
+        height: 70,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
+        borderRadius: 90,
+        backgroundColor: 'red',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 20,
 
+        elevation: 20,
+    },
     buttonText: {
         fontSize: 20,
         fontWeight: "bold"
     },
-
     introduction: {
         marginTop: "10%",
         flex: 1,
@@ -61,8 +80,6 @@ const styles = StyleSheet.create({
         fontSize: 31,
         fontWeight: "bold",
         color: "white"
-
-
     },
     image: {
         //   paddingTop: '0%',
@@ -74,13 +91,11 @@ const styles = StyleSheet.create({
         flex: 2,
         paddingTop: 30,
     },
-
     playView: {
         flex: 3,
         justifyContent: "center",
         alignItems: "center"
     },
-
     choiceView: {
         flex: 3,
         flexDirection: "row",
@@ -89,11 +104,14 @@ const styles = StyleSheet.create({
 
     },
 
-
 });
 export let score = 0;
 
 function FirstScreen({navigation}) {
+    const [isPressed4, setIsPressed4] = React.useState(false);
+    const [isPressed5, setIsPressed5] = React.useState(false);
+
+
     return (
         <View>
             <ImageBackground source={background} style={styles.image}>
@@ -114,22 +132,23 @@ function FirstScreen({navigation}) {
                                           () => {
                                               navigation.navigate("Score")
                                               score = score + 1;
-                                          }}
-                    >
+                                          }}>
                         <Text style={styles.buttonText}>3</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.choice}
-                        onPress={() => score = -1}
+                    <TouchableHighlight
+                        style={[styles.choice, isPressed4 ? {backgroundColor: '#ed1350'} : null]}
+                        onPress={() =>{ score = -1; setIsPressed4(true);}}
                     >
                         <Text style={styles.buttonText}>4</Text>
-                    </TouchableOpacity>
+                    </TouchableHighlight>
 
-                    <TouchableOpacity style={styles.choice}
-                        onPress={() => score = -1}
+                    <TouchableHighlight
+                        style={[styles.choice, isPressed5 ? {backgroundColor: '#ed1350'} : null]}
+                        onPress={() =>{ score = -1; setIsPressed5(true);}}
                     >
                         <Text style={styles.buttonText}>5</Text>
-                    </TouchableOpacity>
+                    </TouchableHighlight>
 
                 </View>
             </ImageBackground>

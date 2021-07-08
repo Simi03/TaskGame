@@ -1,8 +1,11 @@
 import React from "react";
-import {Text, Image, StyleSheet, View, TouchableOpacity} from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
+import {Text, Image, StyleSheet, View, TouchableOpacity, ImageBackground} from "react-native";
+import {FontAwesome} from '@expo/vector-icons';
 
 import {score} from './FirstScreen';
+import {NativeBaseProvider} from "native-base";
+
+const background = {uri: "https://images.unsplash.com/photo-1557682257-2f9c37a3a5f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjR8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"};
 
 const styles = StyleSheet.create({
     globalView: {
@@ -34,8 +37,8 @@ const styles = StyleSheet.create({
         backgroundColor: "blue",
 
     },
-    ButtonArea:{
-        flex:1
+    ButtonArea: {
+        flex: 1
     }
 
 
@@ -44,11 +47,10 @@ const styles = StyleSheet.create({
 let message = "";
 
 function Score() {
-
     if (score > 0) {
-        message = "Good Job!:)";
+        message = "Good Job! You were able to fulfill every Task.:)";
     } else {
-        message = "At least You've tried. More luck next time :)";
+        message = "At least You've tried. More luck next time! :)";
     }
     return (
         <View style={styles.globalView}>
@@ -57,8 +59,9 @@ function Score() {
             </View>
             <View style={styles.messageArea}><Text style={styles.messageStyle}>{message} </Text></View>
             <View style={styles.ButtonArea}>
-                <FontAwesome name="share" size={50} color="black" />
+                <FontAwesome name="share" size={50} color="black"/>
             </View>
+
         </View>
     );
 }
