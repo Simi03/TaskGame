@@ -1,13 +1,12 @@
-import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground, TouchableHighlight} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View, Vibration, ImageBackground, TouchableHighlight, Platform} from "react-native";
 import React from "react";
 import {Button, Icon} from "native-base";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {BackgroundImage} from "react-native-elements/dist/config";
 import {color} from "styled-system";
 
-const background = {uri: "https://i.redd.it/ihfnlpbze7o01.jpg"};
+const background = {uri: "https://images.unsplash.com/photo-1557683325-3ba8f0df79de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=486&q=80"};
 
-const pattern = [900, 900, 900];
 const styles = StyleSheet.create({
     vibrationButton: {
         marginBottom: 42,
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
         elevation: 20,
     },
     buttonText: {
-        fontSize: 20,
+        fontSize: 21,
         fontWeight: "bold"
     },
     introduction: {
@@ -106,6 +105,8 @@ const styles = StyleSheet.create({
 
 });
 export let score = 0;
+const pattern = [900, 900, 900];
+
 
 function FirstScreen({navigation}) {
     const [isPressed4, setIsPressed4] = React.useState(false);

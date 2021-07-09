@@ -5,10 +5,6 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import center from "native-base/src/theme/components/center";
 
 const background = {uri: "https://wallpaperaccess.com/full/869.jpg"};
-// const title = {uri: "https://fontmeme.com/permalink/210708/3e684c01a20e051dea398035c63a71f0.png"};
-
-
-//<Image source={title}/>
 
 const styles = StyleSheet.create({
     image: {
@@ -19,6 +15,7 @@ const styles = StyleSheet.create({
 
     },
     button: {
+        position: "absolute",
         marginTop: "100%",
         marginLeft: "36%",
         marginRight: "36%",
@@ -30,16 +27,20 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         backgroundColor: "white",
     },
-    taskGame:{
+    title: {
+        textAlign: "center",
+        top:80,
+        fontSize: 75,
+        fontWeight: "bold",
+    }
 
-    },
 });
 
-//            <Text style={styles.taskGame}>Task Game</Text>
 function HomeScreen({navigation}) {
     return (
         <NativeBaseProvider>
             <ImageBackground source={background} style={styles.image}>
+                <Text style={styles.title}>The Task Game</Text>
                 <TouchableOpacity style={styles.button}>
                     <Icon
                         as={MaterialCommunityIcons}
