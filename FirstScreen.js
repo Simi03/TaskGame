@@ -146,7 +146,7 @@ function FirstScreen({navigation}) {
                         style={[styles.choice, isPressed5 ? {backgroundColor: '#ed1350'} : null]}
                         onPress={() =>{ score = -1; setIsPressed5(true);}}
                     >
-                        <Text style={styles.buttonText}>5</Text>
+                        <Text style={styles.buttonText}>1</Text>
                     </TouchableHighlight>
 
                 </View>
